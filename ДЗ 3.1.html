@@ -1,0 +1,66 @@
+<html>
+<head>
+<style>
+  .form {
+    width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid gray;
+    font-family: Arial, sans-serif;
+    background-color: lightgray; 
+  }
+
+  .form input {
+    display: block;
+    width: 80%;
+    margin: 10px 0;
+  }
+
+  .form label {
+    display: inline-block;
+    width: 15%;
+    font-weight: bold;
+  }
+
+  .form span {
+    color: red;
+    background-color: emerald; 
+  }
+
+  .form button {
+    display: inline-block;
+    width: 40%;
+    margin: 10px 5%;
+    padding: 10px;
+    background-color: limegreen; 
+    border: none;
+    cursor: pointer;
+  }
+
+  body {
+    background-image: linear-gradient(to right, yellow, green, beige); 
+  }
+</style>
+</head>
+<body>
+<div class="form">
+<h1>Форма заказа товаров</h1>
+<form>
+<label for="name">ФИО<span>*</span></label>
+<input type="text" id="name" name="name" required>
+<label for="email">Email<span>*</span></label>
+<input type="email" id="email" name="email" required>
+<label for="phone">Телефон</label>
+<input type="tel" id="phone" name="phone">
+<label for="goods">Наименование товара<span>*</span></label>
+<input type="text" id="goods" name="goods" required>
+<label for="quantity">Количество<span>*</span></label>
+<input type="number" id="quantity" name="quantity" min="1" required>
+<label for="date">Дата доставки</label>
+<input type="date" id="date" name="date">
+<button type="submit">Отправить</button>
+<button type="reset">Очистить</button>
+</form>
+</div>
+</body>
+</html>

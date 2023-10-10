@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Golovin Web-Site</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <style>
+    /* Ваши стили здесь */
+    #darkModeButton {
+      background-color: transparent; 
+      color: #777; 
+      border: none; 
+      outline: none; 
+      display: flex; 
+      align-items: center; 
+    }
+    
+    #darkModeButton svg {
+      fill: #777; 
+      margin-left: 500px; 
+    }
+    
+    #darkModeButton:hover,
+    #darkModeButton:focus {
+      background-color: transparent; 
+      color: #333; 
+    }
+    
+    .dark-mode {
+      background-color: black; 
+      color: #ccc; 
+    }
+    
+    .dark-mode .dark-mode .nav-link,
+    .dark-mode .nav-item.disabled,
+    .dark-mode .home  {
+      color: #ccc !important; 
+    }
+    
+    .dark-mode #darkModeButton svg {
+      fill: #777; 
+      margin-right: 8px; 
+    }
+    
+    .carousel-item img {
+      max-width: 1200px; 
+      width: 100%; 
+      height: 700px; 
+      max-height: 800px;
+      border-radius: 40px; 
+    }
+    
+    .move-right {
+      margin-left: 700px; 
+    }
+    
+    .dropbtn {
+      background-color: transparent;
+      color: black;
+      padding: 8px;
+      font-size: 18px;
+      height: 30px;
+      border: none;
+    }
+    
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .navbar-brand {
+      font-family: 'Anton', sans-serif; 
+      font-size: 30px;
+    }
+    
+    .dark-mode .navbar-brand {
+      font-family: 'Anton', sans-serif; 
+      font-size: 30px;
+      color: #ccc;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f2ffb2;
+      min-width: 50px;
+      box-shadow: 80px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      left: 0px; 
+      border-radius: 40px; 
+    }
+    
+    .dropdown-content a {
+      color: black;
+      padding: 15px 30px;
+      font-size: 15px;
+      text-decoration: none;
+      display: block;
+    }
+    
+    .dropdown-content a:hover {
+      background-color: transparent;
+    }
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    
+    .dropdown:hover .dropbtn {
+      background-color: transparent;
+    }
+    
+    .dark-mode .gray-in-dark {
+      color: #ccc !important; 
+    }
+    
+    /* Стили для кнопок */
+    .btn-primary {
+      background-color: #f2ffb2;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      font-size: 18px;
+      border-radius: 20px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+    
+    .btn-primary:hover {
+      background-color: green;
+    }
+    
+    /* Стили для сообщения при прокрутке */
+    .scroll-message {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #f2ffb2;
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 20px;
+      opacity: 0.9;
+      z-index: 999;
+    }
+    
+     .scroll-message p {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    @keyframes colorChange {
+  0%, 80%, 100% { color: black; }
+  90% { color: lightgray; }
+}
+
+#scrollMessage span {
+  animation: colorChange ${(letters.length + 1) * 0.2}s infinite;
+}
+  </style>
+</head>
+<body>
+  <!-- Ваш существующий HTML-код здесь -->
+
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Golovin</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        </ul>
+        <ul class="navbar-nav move-right">
+          <li class="nav-item">
+            <div class="dropdown" style="margin-top: 10px;">
+              <button class="dropbtn gray-in-dark">Rome</button>
+              <div class="dropdown-content">
+                <a href="https://maps.app.goo.gl/h8CD7BUX7aQTu2HBA">Colosseo</a>
+                <a href="https://maps.app.goo.gl/HhBuBg5NZ2wQVu258">Cappella Sistina</a>
+                <a href="https://maps.app.goo.gl/bymJpFEjDoy4442U6">Piazza di Spagna</a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown" style="margin-top: 10px;">
+              <button class="dropbtn gray-in-dark">Kharkiv</button>
+              <div class="dropdown-content">
+                <a href="https://nikolsky.com.ua/ru/">NIKOLSKY</a>
+                <a href="https://maps.app.goo.gl/VMnt3ufphcZJKYzd7">ZOO</a>
+                <a href="https://maps.app.goo.gl/3v2LFMqsxkK2eZzK7">Park</a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown" style="margin-top: 10px;">
+              <button class="dropbtn gray-in-dark">Israel</button>
+              <div class="dropdown-content">
+                <a href="https://maps.app.goo.gl/bQSgw2LCPdrdmA1TA">Western Wall</a>
+                <a href="https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F:%D0%90%D0%BA%D1%82%D1%91%D1%80%D1%8B_%D0%98%D0%B7%D1%80%D0%B0%D0%B8%D0%BB%D1%8F">Actors Israel</a>
+                <a href="https://edition.cnn.com/middleeast/live-news/israel-hamas-gaza-attack-10-08-23/index.html">Israel War</a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown" style="margin-top: 10px;">
+              <button class="dropbtn gray-in-dark">Music</button>
+              <div class="dropdown-content">
+                <a href="https://youtu.be/Z8Z51no1TD0?si=URT1DE9z5zw4jiQs">Stefania</a>
+                <a href="https://youtu.be/dT9K7RCHxus?si=eOHZDnVJTrUR58c5">Unicorn</a>
+                <a href="https://eurovisionworld.com/eurovision/2023">Eurovision 2023</a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item ml-auto">
+            <button type="button" class="btn btn-primary" id="darkModeButton" onclick="toggleDarkMode()" style="margin-top: 10px;">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" x="800"><path d="M440-800v-120h80v120h-80Zm0 760v-120h80v120h-80Zm360-400v-80h120v80H800Zm-760 0v-80h120v80H40Zm708-252-56-56 70-72 58 58-72 70ZM198-140l-58-58 72-70 56 56-70 72Zm564 0-70-72 56-56 72 70-58 58ZM212-692l-72-70 58-58 70 72-56 56Zm268 452q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm0-80q67 0 113.5-46.5T640-480q0-67-46.5-113.5T480-640q-67 0-113.5 46.5T320-480q0 67 46.5 113.5T480-320Zm-10-270Z"/></svg>
+            </button>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="Image.jpg" class="d-block w-100" alt="Image 1">
+        </div>
+        <div class="carousel-item">
+          <img src="Image1.jpg" class="d-block w-100" alt="Image 2">
+        </div>
+        <div class="carousel-item">
+          <img src="Image2.jpg" class="d-block w-100" alt="Image 3">
+        </div>
+      </div>
+    </div>
+    <div class="container-buttons">
+      <div class="row" style="margin-top: 20px;">
+        <table>
+          <tr>
+            <td><a href="ДЗ1.png"><button class="btn btn-primary">ДЗ 1</button></a></td>
+            <td><a href="ДЗ2.png"><button class="btn btn-primary">ДЗ 2</button></a></td>
+            <td><a href="ДЗ 3.1.html"><button class="btn btn-primary">ДЗ 3</button></a></td>
+            <td><a href="ДЗ 4.html"><button class="btn btn-primary">ДЗ 4</button></a></td>
+            <td><a href="ДЗ 5.html"><button class="btn btn-primary">ДЗ 5</button></a></td>
+          </tr>
+          <tr>
+            <td><a href="ДЗ 6.html"><button class="btn btn-primary">ДЗ 6</button></a></td>
+            <td><a href="ДЗ 7.html"><button class="btn btn-primary">ДЗ 7</button></a></td>
+            <td><a href="1213.html"><button class="btn btn-primary">ДЗ 8</button></a></td>
+            <td><a href="ДЗ9.png"><button class="btn btn-primary">ДЗ 9</button></a></td>
+            <td><a href="ДЗ10.html"><button class="btn btn-primary">ДЗ 10</button></a></td>
+          </tr>
+          <tr>
+            <td><a href="ДЗ 11.html"><button class="btn btn-primary">ДЗ 11</button></a></td>
+            <td><a href="ДЗ 12.html"><button class="btn btn-primary">ДЗ 12</button></a></td>
+            <td><a href="ДЗ 13.html"><button class="btn btn-primary">ДЗ 13</button></a></td>
+            <td><a href="ДЗ 14.html"><button class="btn btn-primary">ДЗ 14</button></a></td>
+            <td><a href="ДЗ 15.html"><button class="btn btn-primary">ДЗ 15</button></a></td>
+          </tr>
+          <tr>
+            <td><a href="Chat.html"><button class="btn btn-primary">ДЗ 16</button></a></td>
+            <td><a href="Golovin1.html"><button class="btn btn-primary">ДЗ 17</button></a></td>
+            <td><a href="Змейка.html"><button class="btn btn-primary">ДЗ 18</button></a></td>
+            <td><a href="Golovin.html"><button class="btn btn-primary">ДЗ 19</button></a></td>
+          </tr>  
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Сообщение при прокрутке -->
+  <div class="scroll-message" id="scrollMessage">
+    <p id="animatedText">⮜Это все мои проекты Hillel</p>
+</div>
+
+
+  <script>
+    let darkModeEnabled = false;
+
+    function toggleDarkMode() {
+  const body = document.body;
+  darkModeEnabled = !darkModeEnabled;
+
+  if (darkModeEnabled) {
+    body.classList.add('dark-mode');
+    localStorage.setItem('darkModeEnabled', 'true');
+    document.getElementById('darkModeButton').innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Zm0-80q88 0 158-48.5T740-375q-20 5-40 8t-40 3q-123 0-209.5-86.5T364-660q0-20 3-40t8-40q-78 32-126.5 102T200-480q0 116 82 198t198 82Zm-10-270Z"/></svg>';
+  } else {
+    body.classList.remove('dark-mode');
+    localStorage.setItem('darkModeEnabled', 'false');
+    document.getElementById('darkModeButton').innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M440-760v-160h80v160h-80Zm266 110-55-55 112-115 56 57-113 113Zm54 210v-80h160v80H760ZM440-40v-160h80v160h-80ZM254-652 140-763l57-56 113 113-56 54Zm508 512L651-255l54-54 114 110-57 59ZM40-440v-80h160v80H40Zm157 300-56-57 112-112 29 27 29 28-114 114Zm283-100q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm0-80q66 0 113-47t47-113q0-66-47-113t-113-47q-66 0-113 47t-47 113q0 66 47 113t113 47Zm0-160Z"/></svg>';
+  }
+}
+
+// Проверяем состояние в localStorage при загрузке страницы
+document.addEventListener('DOMContentLoaded', function () {
+  const storedDarkMode = localStorage.getItem('darkModeEnabled');
+  if (storedDarkMode === 'true') {
+    toggleDarkMode(); // Включаем Dark Mode, если он был сохранен
+  }
+});
+
+
+    // Функция, которая проверяет, долистал ли пользователь до нижней части страницы
+    function isUserAtBottom() {
+      return window.innerHeight + window.scrollY >= document.body.offsetHeight;
+    }
+
+    // Функция для отображения сообщения при прокрутке
+    function showScrollMessage() {
+      const scrollMessage = document.getElementById('scrollMessage');
+      if (isUserAtBottom()) {
+        scrollMessage.style.display = 'block';
+      } else {
+        scrollMessage.style.display = 'none';
+      }
+    }
+
+    // Слушатель события прокрутки страницы
+    window.addEventListener('scroll', showScrollMessage);
+
+    // Инициализация при загрузке страницы
+    document.addEventListener('DOMContentLoaded', showScrollMessage);
+
+    let text = document.getElementById('animatedText').innerText;
+let letters = text.split('');
+let container = document.getElementById('animatedText');
+container.innerHTML = '';
+
+letters.forEach((letter, index) => {
+    let span = document.createElement('span');
+    span.innerText = letter;
+    span.style.animation = `colorChange 2s ${index * 0.2}s infinite`;
+    container.appendChild(span);
+});
+  </script>
+</body>
+</html>

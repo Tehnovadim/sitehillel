@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Мінімалістичний калькулятор</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffcc; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #calculator {
+            position: relative;
+            width: 270px;
+            background-color: #333;
+            color: #fff;
+            border-radius: 70px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 50px;
+        }
+
+        #display {
+            width: 95%;
+            height: 40px;
+            font-size: 24px;
+            margin-bottom: 10px;
+            padding: 5px;
+            text-align: left;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+        }
+
+        button {
+            width: 54px;
+            height: 50px;
+            font-size: 20px;
+            margin: 5px;
+            border: none;
+            outline: none;
+            background-color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #eee;
+        }
+
+        
+        #name {
+            position: absolute;
+            bottom: 12px;
+            right: 87px;
+            font-size: 30px; 
+            color: #ffffcc; 
+        }
+    </style>
+</head>
+<body>
+    <div id="calculator">
+        <input type="text" id="display" readonly>
+        <div id="buttons">
+            <button onclick="addToDisplay('7')">7</button>
+            <button onclick="addToDisplay('8')">8</button>
+            <button onclick="addToDisplay('9')">9</button>
+            <button onclick="addToDisplay('+')">+</button>
+            <button onclick="addToDisplay('4')">4</button>
+            <button onclick="addToDisplay('5')">5</button>
+            <button onclick="addToDisplay('6')">6</button>
+            <button onclick="addToDisplay('-')">-</button>
+            <button onclick="addToDisplay('1')">1</button>
+            <button onclick="addToDisplay('2')">2</button>
+            <button onclick="addToDisplay('3')">3</button>
+            <button onclick="addToDisplay('*')">*</button>
+            <button onclick="addToDisplay('0')">0</button>
+            <button onclick="addToDisplay('.')">.</button>
+            <button onclick="calculatePercentage()">%</button>
+            <button onclick="addToDisplay('/')">:</button>
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="addToDisplay('(')">(</button>
+            <button onclick="addToDisplay(')')">)</button>
+            <button onclick="calculate()">=</button>
+        </div>
+
+        
+        <div id="name">Vadim Golovin</div>
+    </div>
+
+    <script>
+        function addToDisplay(value) {
+            const display = document.getElementById('display');
+            display.value += value;
+        }
+
+        function calculate() {
+            const display = document.getElementById('display');
+            try {
+                const input = display.value;
+               
+                const replacedInput = input.replace(/%/g, '/100').replace(/√/g, 'Math.sqrt');
+                const result = eval(replacedInput);
+                display.value = result;
+            } catch (error) {
+                display.value = 'Помилка';
+            }
+        }
+
+        function calculatePercentage() {
+            const display = document.getElementById('display');
+            try {
+                const input = display.value;
+                const result = eval(input.replace(/%/g, '/100'));
+                display.value = result;
+            } catch (error) {
+                display.value = 'Помилка';
+            }
+        }
+
+        function clearDisplay() {
+            const display = document.getElementById('display');
+            display.value = '';
+        }
+    </script>
+</body>
+</html>

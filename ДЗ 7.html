@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .burger-menu {
+    position: fixed;
+    top: 0;
+    right: -330px; /* Adjusted the closed state width */
+    width: 360px; /* Increased the width by 10% */
+    height: 100%;
+    background-color: #333;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: right 0.3s ease-in-out;
+  }
+  
+  .burger-menu.open {
+    right: 0;
+  }
+  
+  .menu-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 2;
+  }
+  
+  .menu-icon {
+    width: 30px;
+    height: 30px;
+    background-color: #333;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .menu-icon:before, .menu-icon:after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background-color: white;
+    left: 0;
+    transition: transform 0.3s ease-in-out, top 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+  
+  .menu-icon:before {
+    top: -8px;
+  }
+  
+  .menu-icon:after {
+    top: 8px;
+  }
+  
+  .menu-icon.open {
+    transform: rotate(45deg);
+  }
+  
+  .menu-icon.open:before {
+    top: 0;
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+  
+  .menu-icon.open:after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+  
+  .menu-items {
+    list-style: none;
+    padding: 0;
+    margin-top: 40px;
+  }
+  
+  .menu-item {
+    margin-bottom: 20px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transform: translateX(100%); /* Added to hide the text when closed */
+    transition: color 0.3s; /* Added for the color change animation */
+  }
+  
+  .menu-item:hover {
+    color: #ffcc00; /* Change the color on hover */
+  }
+  
+  .burger-menu.open .menu-item {
+    transform: translateX(0); /* Reset the translation when open */
+  }
+</style>
+</head>
+<body>
+  <div class="menu-toggle">
+    <div class="menu-icon"></div>
+  </div>
+  <div class="burger-menu">
+    <ul class="menu-items">
+      <li class="menu-item">
+        Контакты
+      </li>
+      <li class="menu-item">
+        Меню
+      </li>
+      <li class="menu-item">
+        Помощь
+      </li>
+    </ul>
+  </div>
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const burgerMenu = document.querySelector('.burger-menu');
+    const menuIcon = document.querySelector('.menu-icon');
+
+    menuToggle.addEventListener('click', () => {
+      burgerMenu.classList.toggle('open');
+      menuIcon.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>

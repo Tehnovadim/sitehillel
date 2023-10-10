@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест по Windows</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Caprasimo&family=Roboto+Slab:wght@900&family=Roboto:ital,wght@1,100;1,900&family=Rubik+Mono+One&family=Russo+One&family=Seymour+One&family=Tilt+Prism&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: rgb(255, 255, 255);
+            background: radial-gradient(circle, rgba(255, 255, 255, 1) 57%, rgba(0, 117, 255, 1) 100%);
+        }
+
+        .quiz-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .question {
+            font-size: 18px;
+            margin-bottom: 10px;
+            background-color: #c8e1ff;
+            padding: 10px;
+            border-radius: 20px; 
+        }
+
+        .answer {
+            padding: 5px;
+            border: 1px solid #333; 
+            margin-bottom: 5px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        .drop-target {
+            padding: 10px;
+            border: 2px dashed #3498db;
+            margin-top: 10px;
+            border-radius: 10px; 
+        }
+
+        #show-answers {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #2ecc71;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-family: 'Anton', sans-serif; 
+        }
+
+        #score {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        h1 {
+            font-family: 'Russo One', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Тест по Windows</h1>
+        <p class="question">1. Какая версия Windows была выпущена после Windows 8?</p>
+        <div class="answer" draggable="true">Windows 8.1</div>
+        <div class="answer" draggable="true">Windows 10</div>
+        <div class="answer" draggable="true">Windows 7</div>
+        <div class="drop-target" data-correct="Windows 10">Перетащите правильный ответ сюда</div>
+
+        <p class="question">2. Какая функция позволяет вам находить приложения и файлы в Windows?</p>
+        <div class="answer" draggable="true">Проводник</div>
+        <div class="answer" draggable="true">Пуск</div>
+        <div class="answer" draggable="true">Поиск</div>
+        <div class="drop-target" data-correct="Поиск">Перетащите правильный ответ сюда</div>
+
+        <p class="question">3. Какой комбинацией клавиш можно вызвать диспетчер задач в Windows?</p>
+        <div class="answer" draggable="true">Ctrl + Alt + Del</div>
+        <div class="answer" draggable="true">Alt + F4</div>
+        <div class="answer" draggable="true">Win + D</div>
+        <div class="drop-target" data-correct="Ctrl + Alt + Del">Перетащите правильный ответ сюда</div>
+
+        <p class="question">4. Какой год выпуска у Windows XP?</p>
+        <div class="answer" draggable="true">1998</div>
+        <div class="answer" draggable="true">2001</div>
+        <div class="answer" draggable="true">2004</div>
+        <div class="drop-target" data-correct="2001">Перетащите правильный ответ сюда</div>
+
+        <p class="question">5. Какой интерфейс по умолчанию используется в Windows 10?</p>
+        <div class="answer" draggable="true">Aero</div>
+        <div class="answer" draggable="true">Metro</div>
+        <div class="answer" draggable="true">Fluent</div>
+        <div class="drop-target" data-correct="Fluent">Перетащите правильный ответ сюда</div>
+
+        <!-- Дополнительные вопросы -->
+        <p class="question">6. Какой язык программирования используется для создания приложений на платформе Windows?</p>
+        <div class="answer" draggable="true">Java</div>
+        <div class="answer" draggable="true">C++</div>
+        <div class="answer" draggable="true">Python</div>
+        <div class="drop-target" data-correct="C++">Перетащите правильный ответ сюда</div>
+
+        <p class="question">7. Какой компонент Windows отвечает за управление файлами и папками?</p>
+        <div class="answer" draggable="true">Диспетчер задач</div>
+        <div class="answer" draggable="true">Проводник</div>
+        <div class="answer" draggable="true">Word</div>
+        <div class="drop-target" data-correct="Проводник">Перетащите правильный ответ сюда</div>
+
+        <p class="question">8. Какой браузер входит в состав операционной системы Windows?</p>
+        <div class="answer" draggable="true">Google Chrome</div>
+        <div class="answer" draggable="true">Microsoft Edge</div>
+        <div class="answer" draggable="true">Mozilla Firefox</div>
+        <div class="drop-target" data-correct="Microsoft Edge">Перетащите правильный ответ сюда</div>
+
+        <p class="question">9. Как называется меню, которое позволяет запускать приложения в Windows?</p>
+        <div class="answer" draggable="true">Пуск</div>
+        <div class="answer" draggable="true">Старт</div>
+        <div class="answer" draggable="true">Запуск</div>
+        <div class="drop-target" data-correct="Пуск">Перетащите правильный ответ сюда</div>
+
+        <p class="question">10. Как называется магазин приложений Windows?</p>
+        <div class="answer" draggable="true">App Store</div>
+        <div class="answer" draggable="true">Microsoft Store</div>
+        <div class="answer" draggable="true">Play Store</div>
+        <div class="drop-target" data-correct="Microsoft Store">Перетащите правильный ответ сюда</div>
+
+        <button id="show-answers">Показать ответы</button>
+        <div id="score"></div>
+    </div>
+
+    <script>
+        const answers = document.querySelectorAll('.answer');
+        const dropTargets = document.querySelectorAll('.drop-target');
+        const showAnswersButton = document.getElementById('show-answers');
+        const scoreDisplay = document.getElementById('score');
+        const totalQuestions = 10; 
+        let correctAnswers = 0;
+
+        answers.forEach(answer => {
+            answer.addEventListener('dragstart', (e) => {
+                e.dataTransfer.setData('text/plain', answer.textContent);
+            });
+        });
+
+        dropTargets.forEach(target => {
+            target.addEventListener('dragover', (e) => {
+                e.preventDefault();
+            });
+
+            target.addEventListener('drop', (e) => {
+                e.preventDefault();
+                const droppedText = e.dataTransfer.getData('text/plain');
+                const correctAnswer = target.getAttribute('data-correct');
+
+                if (droppedText === correctAnswer) {
+                    target.textContent = `Правильно: ${correctAnswer}`;
+                    target.style.borderColor = '#2ecc71';
+                    correctAnswers++;
+                } else {
+                    target.textContent = `Неправильно: ${droppedText}`;
+                    target.style.borderColor = '#e74c3c';
+                }
+            });
+        });
+
+        showAnswersButton.addEventListener('click', () => {
+            dropTargets.forEach(target => {
+                const correctAnswer = target.getAttribute('data-correct');
+                target.textContent = `Правильно: ${correctAnswer}`;
+                target.style.borderColor = '#2ecc71';
+            });
+
+            scoreDisplay.textContent = `Правильных ответов: ${correctAnswers}/${totalQuestions}`;
+        });
+    </script>
+</body>
+</html>

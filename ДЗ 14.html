@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Шыншилы</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(156, 156, 156);
+            background: radial-gradient(circle, rgba(156, 156, 156, 1) 0%, rgba(181, 182, 189, 1) 47%, rgba(199, 181, 181, 1) 100%);
+        }
+        #header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        #navigation {
+            position: fixed;
+            top: 40px;
+            right: 0;
+            width: 200px;
+            background-color: #eee;
+            padding: 10px;
+        }
+        #content {
+            margin: 80px 220px;
+            padding: 20px;
+        }
+        .nav-item {
+            font-size: 16px;
+            margin-bottom: 10px;
+            transition: font-size 0.2s, text-shadow 0.2s;
+        }
+        .nav-item:hover {
+            font-size: 18px;
+            text-shadow: 2px 2px 4px #fff;
+            font-weight: bold;
+        }
+      
+        #startButton {
+            position: absolute;
+            bottom: -50%; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            background-color: transparent; 
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <span class="nav-item"> Home</span>
+        <span class="nav-item"> About</span>
+        <span class="nav-item"> Photos</span>
+        <span class="nav-item"> Links</span>
+        <span class="nav-item"> Forum</span>
+        <span class="nav-item"> Free</span>
+        <span class="nav-item"> Stuff</span>
+        <span class="nav-item"> Downloads</span>
+        <span class="nav-item"> Products</span>
+        <span class="nav-item"> SiteMap</span>
+    </div>
+    <div id="navigation">
+        <h3>Категории</h3>
+        <ul>
+            <li class="nav-item"><a href="https://www.eurosport.com/">Спорт в Европе</a></li>
+            <li class="nav-item"><a href="https://kiwieducation.ru/ca/about_country/zhizn-v-kanade-plyusy-i-minusy/">Жизнь в Канаде</a></li>
+            <li class="nav-item"><a href="https://youtu.be/FF9uzHMRrcY?si=6gFh6de2YsshT0ZT">Мороженое Израиль</a></li>
+            <li class="nav-item"><a href="https://multiplex.ua/ru/movie/354992">Барби</a></li>
+        </ul>
+        <h3>Архив</h3>
+        <ul>
+            <li class="nav-item"><a href="#">Январь 2018</a></li>
+            <li class="nav-item"><a href="#">Февраль 2018</a></li>
+            <li class="nav-item"><a href="#">Март 2018</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <h1 id="updateText1">Загадочные Шиншилы: Перлы Анд</h1>
+        <img id="updateImage" src="http://brestnote.by/wp-content/uploads/2016/05/%D1%88%D0%B8%D0%BD%D1%88-4.jpg" alt="Shynshil" width="600">
+        <h1 id="updateText2">Введение</h1>
+        <p id="updateTextPara1">Шиншилы - милые и пушистые создания, обитающие в живописных Андах. Их невероятно мягкая шерсть и уникальные привычки сделали их одними из самых удивительных существ на планете. В этой статье мы погрузимся в мир шиншил и узнаем о них больше.</p>
+        <h1 id="updateText3">Эволюция и Происхождение</h1>
+        <p id="updateTextPara2">Шиншилы были открыты европейцами в XVI веке и сразу же стали объектом интереса из-за своей уникальной шерсти. Эти млекопитающие произошли из Южной Америки, и их древняя история тесно связана с индейскими культурами. Они были домашними животными и ценным ресурсом для создания одежды.</p>
+       <h1 id="updateText4">Жизнь в Горных Районах</h1>
+        <p id="updateTextPara3">Шиншилы являются типичными обитателями горных районов, обитая на высотах до 5 000 метров. Их пушистая шерсть - это адаптация к холодному климату, позволяющая им выживать в суровых условиях.</p>
+        <h1 id="updateText5">Уникальные Привычки и Поведение</h1>
+        <p id="updateTextPara4">Эти ночные создания известны своими активными привычками в темноте. Они проводят большую часть ночи, исследуя окружающую среду в поисках пищи и социальной взаимосвязи. Один из удивительных аспектов их поведения - это способность к резким и быстрым прыжкам, позволяющим избегать хищников.</p>
+        <h1 id="updateText6">Защита Вида и Охрана</h1>
+        <p id="updateTextPara5">Из-за высокой ценности их шерсти, шиншилы были подвергнуты жестокой охоте и даже истреблению. Однако, благодаря усилиям международных организаций по охране природы, многие виды шиншил получили статус защищенных и видят новую надежду на сохранение.</p>
+        <h1 id="updateText7">Заключение</h1>
+        <p id="updateTextPara6">Все больше людей начинают осознавать важность охраны и защиты шиншил. Эти удивительные существа являются частью богатого биоразнообразия Анд и нам следует уважать их природное место в этом экосистеме.</p>
+    </div>
+
+   
+    <button id="startButton">Плюшевый обитатель Австралии</button>
+
+    <script>
+        document.getElementById("startButton").addEventListener("click", function() {
+            var h1Texts = [
+                "Коалы: Плюшевые обитатели Австралии",
+                "Введение",
+                "Эволюция и Происхождение",
+                "Жизнь в Деревьях",
+                "Уникальные Привычки и Поведение",
+                "Защита Вида и Охрана",
+                "Заключение"
+            ];
+
+            var textPara = [
+                "Коалы - одни из самых узнаваемых и милых животных Австралии. Их пушистая внешность и неповторимый образ жизни делают их удивительными существами. В этой статье мы погрузимся в мир коал и узнаем больше о них.",
+                "Коалы являются марсупиалами и произошли из Австралии. Их история на этом континенте насчитывает миллионы лет. Они являются близкими родственниками других австралийских символов, таких как кенгуру и вомбат. Коалы были известны аборигенам Австралии на протяжении многих поколений.",
+                "Коалы - преимущественно древесные животные, обитающие в лесах и редколесьях Австралии. Они проводят большую часть своей жизни на деревьях, особенно предпочитая молодые листья эвкалиптов, которые составляют основу их рациона.",
+                "Коалы известны своей спокойной натурой и медленным образом жизни. Они проводят большую часть дня спящими, отдыхая в ветвях деревьев. Помимо этого, их основной рацион состоит из листьев, богатых эвкалиптовой смолой, что делает их сравнительно низкоэнергичными.",
+                "Коалы столкнулись с множеством угроз, включая вырубку лесов, дорожные аварии и изменение климата. Их численность сокращается, и многие организации по охране природы работают над защитой этого уязвимого вида. В Австралии были созданы заповедники и программы восстановления для сохранения популяции коал.",
+                "Коалы - важная часть австралийской природы и культуры. Их защита и сохранение являются приоритетными задачами для организаций по охране природы и правительства Австралии. Эти удивительные создания заслуживают нашего внимания и заботы, чтобы будущие поколения могли наслаждаться их присутствием в природе.",
+                "Новый текст для седьмого абзаца!"
+            ];
+
+            var images = [
+                "https://cdn.aussiedlerbote.de/wp-content/uploads/2022/02/koala.jpg?&format=webp&width=1200&quality=25",
+                "https://vetandlife.ru/wp-content/uploads/2022/02/mammal-gab5a9bf97_1280.jpg",
+                "https://images11.graziamagazine.ru/upload/img_cache/abb/abb16b64575e71ac8f7b744cc84e2655_ce_1280x672x0x181_cropped_1200x628.jpg",
+                "https://news-ru.gismeteo.st/2022/02/shutterstock_1614364711-640x427.jpg",
+                "https://www.5.ua/media/pictures/original/197886.jpg?t=1602840268",
+                "https://rg.ru/uploads/images/178/09/56/h_55475653.jpg",
+                "https://www.5.ua/media/pictures/original/197886.jpg?t=1602840268"
+            ];
+
+            var currentH1Index = 0;
+            var currentTextParaIndex = 0;
+            var currentImageIndex = 0;
+
+            function updateContent() {
+                if (currentH1Index < h1Texts.length) {
+                    document.getElementById("updateText" + (currentH1Index + 1)).innerHTML = h1Texts[currentH1Index];
+                    currentH1Index++;
+                }
+
+                if (currentTextParaIndex < textPara.length) {
+                    document.getElementById("updateTextPara" + (currentTextParaIndex + 1)).innerHTML = textPara[currentTextParaIndex];
+
+                    if (currentImageIndex < images.length) {
+                        document.getElementById("updateImage").src = images[currentImageIndex];
+                        currentImageIndex++;
+                    }
+
+                    currentTextParaIndex++;
+                } else {
+                    clearInterval(interval);
+                }
+            }
+
+            var interval = setInterval(updateContent, 3000); 
+        });
+    </script>
+</body>
+</html>

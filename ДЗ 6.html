@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loading Animation</title>
+<style>
+  body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #181818;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+  }
+
+  .loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .creeper-container {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    animation: bounce 1.5s ease-in-out infinite;
+  }
+
+  .creeper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .pixel {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #4caf50;
+    opacity: 0.7;
+    animation: blink 1s infinite alternate, move 5s linear infinite alternate;
+  }
+
+  .pixel:nth-child(odd) {
+    animation-delay: 0.5s;
+  }
+
+  .pixel:nth-child(3n) {
+    animation: blink 1s infinite alternate-reverse, move 5s linear infinite alternate-reverse;
+  }
+
+  .pixel:nth-child(3n+1) {
+    animation-delay: 0.5s;
+  }
+
+  .text {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #4caf50;
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes blink {
+    0%, 100% {
+      opacity: 0.7;
+    }
+    50% {
+      opacity: 0.2;
+    }
+  }
+
+  @keyframes move {
+    0%, 100% {
+      transform: translate(0, 0);
+    }
+    25% {
+      transform: translate(20px, 20px);
+    }
+    50% {
+      transform: translate(40px, 0);
+    }
+    75% {
+      transform: translate(20px, -20px);
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="loading-container">
+    <div class="creeper-container">
+      <img class="creeper" src="https://media.forgecdn.net/avatars/247/101/637161336364013519.png" alt="Minecraft Creeper">
+      <div class="pixel" style="top: 20px; left: 40px;"></div>
+      <div class="pixel" style="top: 40px; left: 80px;"></div>
+      <div class="pixel" style="top: 80px; left: 20px;"></div>
+      <div class="pixel" style="top: 100px; left: 60px;"></div>
+      <div class="pixel" style="top: 120px; left: 100px;"></div>
+    </div>
+    <div class="text">Please wait...</div>
+  </div>
+</body>
+</html>

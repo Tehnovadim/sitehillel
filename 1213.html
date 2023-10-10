@@ -1,0 +1,297 @@
+<html>
+<head>
+  <style>
+    body{
+      background: rgb(180,58,58);
+background: linear-gradient(135deg, rgba(180,58,58,1) 0%, rgba(255,255,255,1) 14%, rgba(255,255,255,1) 49%, rgba(255,255,255,1) 86%, rgba(252,69,69,1) 100%);
+    }
+    
+    .container {
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    
+    .header {
+      width: 1900px;
+      height: 100px;
+      background-color: #282828;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+  
+    .logo {
+      width: 70px;
+      height: 40px;
+      margin-left: 20px;
+    }
+
+    
+    .search {
+      width: 60%;
+      height: 30px;
+      border: none;
+      border-radius: 2px;
+      padding: 5px;
+    }
+
+   
+    .search-button {
+      width: 60px;
+      height: 40px;
+      border: none;
+      border-radius: 2px;
+      background-color: #f8f8f8;
+      cursor: pointer;
+    }
+
+  
+    .icons {
+      width: 200px;
+      height: 40px;
+      margin-right: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    
+    .icon {
+      width: 40px;
+      height: 40px;
+    }
+
+   
+    .content {
+      width: 80%;
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 20px;
+    }
+
+   
+    .video {
+      width: 100%;
+      height: auto;
+    }
+
+    
+    .video-image {
+      width: 100%;
+      height: 180px;
+    }
+
+   
+    .video-info {
+      width: 100%;
+      height: auto;
+      padding: 10px;
+      display: flex;
+    }
+
+   
+    .video-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    
+    .video-text {
+      width: calc(100% - 50px);
+      height: auto;
+      margin-left: 10px;
+    }
+
+  
+    .video-title {
+      font-size: 16px;
+      font-weight: bold;
+      color: #000000;
+    }
+
+    
+    .video-channel, .video-views {
+      font-size: 14px;
+      color: #808080;
+    }
+
+
+     
+     @media (max-width :1200px) {
+       .content {
+         width :70%;
+       }
+     }
+
+          @media (max-width :1000px) {
+       .content {
+         width :60%;
+         grid-template-columns :repeat(3,1fr);
+       }
+     }
+
+    
+     @media (max-width :800px) {
+       .content {
+         width :50%;
+         grid-template-columns :repeat(2,1fr);
+       }
+     }
+
+     
+     @media (max-width :600px) {
+       .content {
+         width :40%;
+         grid-template-columns :repeat(1,1fr);
+       }
+     }
+
+     
+     @media (max-width :400px) {
+       .content {
+         width :80%;
+         grid-template-columns :repeat(1,1fr);
+       }
+     }
+     
+      @media (max-width :600px) {
+        .video {
+          width: 130%;
+          height: auto;
+          transform: translateX(-15%);
+        }
+      }
+
+  </style>
+</head>
+<body>
+   <div class="container">
+    <div class="header">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/1024px-YouTube_full-color_icon_%282017%29.svg.png" class="logo" alt="YouTube Logo">
+      <input type="text" class="search" placeholder="Поиск">
+      <button class="search-button">🔍</button>
+      <div class="icons">
+        <img src="https://mywebicons.ru/i/png/3ef56b9d349f00fccb28da24835ea554.png" class="icon" alt="Profile Icon">
+      </div>
+    </div>
+    <div class="content">
+      <div class="video">
+        <img src="https://i.ytimg.com/vi/Yj6EFF0zILI/hqdefault.jpg?sqp=-oaymwE1CKgBEF5IVfKriqkDKAgBFQAAiEIYAXABwAEG8AEB-AH-CYAC0AWKAgwIABABGGUgTShCMA8=&rs=AOn4CLBPRVLsPDcFd5kna2MH_YAxB9vybQ" class="video-image" alt="Video 1 Image">
+        <div class="video-info">
+          <img src="https://yt3.googleusercontent.com/sfPp150iI6VC5f4laY-osycP6qgKlT0YDXy47aTwG6HQncqecE36Lt7MG4o9h6L3S93tLcUb_6c=s900-c-k-c0x00ffffff-no-rj" class="video-avatar" alt="Avatar 1 Image">
+          <div class="video-text">
+            <p class="video-title">Как сделать сайт HTML за 10 минут</p>
+            <p class="video-channel">Hillel</p>
+            <p class="video-views">2.3M просмотров • 3 дня назад</p>
+          </div>
+        </div>
+      </div>
+      <div class="video">
+        <img src="https://androidinsider.ru/wp-content/uploads/2023/08/top_apps_android-750x499.jpg" class="video-image" alt="Video 2 Image">
+        <div class="video-info">
+          <img src="data:image/png;base64,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" class="video-avatar" alt="Avatar 2 Image">
+          <div class="video-text">
+            <p class="video-title">Лучшие приложения для Android в 2023 году</p>
+            <p class="video-channel">Google</p>
+            <p class="video-views">1.5M просмотров • 5 дней назад</p>
+          </div>
+        </div>
+      </div>
+      <div class="video">
+        <img src="https://i.ytimg.com/vi/7TvtFpTDtq8/maxresdefault.jpg" class="video-image" alt="Video 3 Image">
+        <div class="video-info">
+          <img src="https://play-lh.googleusercontent.com/WmbsVfkyNLLHS-YvSH1bi1gjoTDiZTWf9-UASDHksFPua2B4u5bznHBe0rsTkNHWgQ" class="video-avatar" alt="Avatar 3 Image">
+          <div class="video-text">
+            <p class="video-title">Как выучить английский язык за месяц</p>
+            <p class="video-channel">Duolingo</p>
+            <p class="video-views">3.2M просмотров • 7 дней назад</p>
+          </div>
+        </div>
+      </div>
+<div class="video">
+  <img src= "https://i.ytimg.com/vi/_Y6poEqotKM/maxresdefault.jpg" class= "video-image" alt= "Video 4 Image">
+  <div class= "video-info">
+    <img src= "https://img.tapimg.net/market/images/FoUv-zVYUQq9opMHGWf1V8vEpevT.png/appicon_m" class= "video-avatar" alt= "Avatar 4 Image">
+    <div class= "video-text">
+      <p class= "video-title">Как сделать слайм из клея и соды</p>
+      <p class= "video-channel">Slime Master</p>
+      <p class= "video-views">4.7M просмотров • 9 дней назад</p>
+    </div>
+  </div>
+</div>
+<div class="video">
+  <img src= "https://e0.edimdoma.ru/data/posts/0002/1429/21429-ed4_wide.jpg?1631194036" class= "video-image" alt= "Video 5 Image">
+  <div class= "video-info">
+    <img src= "https://static.vecteezy.com/system/resources/previews/021/966/443/original/italian-chef-with-a-pizza-chef-holding-a-pizza-vector.jpg" class= "video-avatar" alt= "Avatar 5 Image">
+    <div class= "video-text">
+      <p class= "video-title">Как сделать пиццу в домашних условиях</p>
+      <p class= "video-channel">Pizza Chef</p>
+      <p class= "video-views">2.1M просмотров • 12 дней назад</p>
+    </div>
+  </div>
+</div>
+<div class="video">
+  <img src= "https://i.ytimg.com/vi/b_s4KQd2GDg/maxresdefault.jpg" class= "video-image" alt= "Video 6 Image">
+  <div class= "video-info">
+    <img src= "https://images.squarespace-cdn.com/content/v1/605b8c2baabf8c1b8e4d5843/1616613919188-T6XYY3R9AVEE7ZIO0FJP/logo.png" class= "video-avatar" alt= "Avatar 6 Image">
+    <div class= "video-text">
+      <p class= "video-title">Как нарисовать портрет с помощью карандаша</p>
+      <p class= "video-channel">Art Studio</p>
+      <p class= "video-views">3.5M просмотров • 15 дней назад</p>
+    </div>
+  </div>
+</div>
+<div class="video">
+  <img src= "https://cvetok-v-dome.ru/wp-content/uploads/2019/07/roza-v-gorshke1.jpg" class= "video-image" alt= "Video 7 Image">
+  <div class= "video-info">
+    <img src= "https://moodmats.com/cdn/shop/products/FlowerPowerforWebcopy_3f879fa5-f0a3-4891-b12a-abdddbe03011_1024x1024.jpg?v=1618864911" class= "video-avatar" alt= "Avatar 7 Image">
+    <div class= "video-text">
+      <p class= "video-title">Как вырастить розы на балконе</p>
+      <p class= "video-channel">Flower Power</p>
+      <p class= "video-views">1.8M просмотров • 18 дней назад</p>
+    </div>
+  </div>
+</div>
+<div class="video">
+  <img src= "https://i.ytimg.com/vi/JvmXVeem2lI/maxresdefault.jpg" class= "video-image" alt= "Video 8 Image">
+  <div class= "video-info">
+    <img src= "https://la-palme.ru/wp-content/uploads/2022/05/brosh-origami-korablik-snezhnyj-2-1.jpg?x52776" class= "video-avatar" alt= "Avatar 8 Image">
+    <div class= "video-text">
+      <p class= "video-title">Как сделать оригами из бумаги</p>
+      <p class= "video-channel">Origami Master</p>
+      <p class= "video-views">2.4M просмотров • 21 день назад</p>
+    </div>
+  </div>
+</div>
+<div class="video">
+  <img src= "https://cdn-2.heroine.ru/C2ruJzxUTeKj2zozdnXBdroyiP9DKVgwmhPtKzA76aM/rs:fill:880:476:0/g:ce:0:0/c:0:0/aHR0cHM6Ly9oZXJvaW5lLnJ1L3dwLWNvbnRlbnQvdXBsb2Fkcy8yMDIxLzEyLzE1L2hlcm9pbmUucnVfMTUuMTIuMjAyMV9vVnluZHdBOVhPOWJ4LnBuZw" class= "video-image" alt= "Video 9 Image">
+  <div class= "video-info">
+    <img src= "https://images.squarespace-cdn.com/content/v1/5f9c1c4fc88dc444c3d23584/1617120330381-TF4WHDOC9NFW2IJUOV5G/TBG+Logo+%5BCOLOUR%5D+-+PNG+%5BPRINT_CMYK%5D-01.png" class= "video-avatar" alt= "Avatar 9 Image">
+    <div class= "video-text">
+      <p class= "video-title">Как сделать макияж для вечеринки</p>
+      <p class= "video-channel">Beauty Guru</p>
+      <p class= "video-views">3.1M просмотров • 24 дня назад</p>
+    </div>
+  </div>
+</div>
+<div class="video">
+  <img src= "https://i.ytimg.com/vi/2OblthkC0nY/maxresdefault.jpg" class= "video-image" alt= "Video 10 Image">
+  <div class= "video-info">
+    <img src= "https://2.bp.blogspot.com/-mvBe_hJaXhg/WIO5MrasLEI/AAAAAAAAGjw/GfIzalYuuKo7tahg0yRWzxkP38TT4HGFwCEw/s1600/amazing%2Bclay%2Bcrafts.jpg" class= "video-avatar" alt= "Avatar 10 Image">
+    <div class= "video-text">
+      <p class= "video-title">Как сделать поделку из пластилина</p>
+      <p class= "video-channel">Clay Craft</p>
+      <p class= "video-views">2.7M просмотров • 27 дней назад</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+
+

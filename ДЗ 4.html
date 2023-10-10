@@ -1,0 +1,79 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: background: rgb(63,251,63);
+background: radial-gradient(circle, rgba(63,251,63,1) 0%, rgba(80,82,57,1) 25%, rgba(252,70,70,1) 97%);
+        }
+        h1 {
+            text-align: center;
+            color: #ffffff
+        }
+        form {
+            width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #cccccc;
+            background-color: background: rgb(19,201,35);
+background: linear-gradient(0deg, rgba(19,201,35,1) 0%, rgba(185,23,23,1) 50%, rgba(196,27,27,1) 100%);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="radio"] {
+            margin-right: 390px;
+        }
+        input[type="text"] {
+            width: 300px;
+        }
+        button {
+            display: block;
+            width: 100px;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10px;
+            border: none;
+            background-color: #00cc00;
+            color: #ffffff;
+            font-weight: bold;
+        }
+        .option {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; 
+        }
+        .option span {
+          margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Форма голосования</h1>
+    <form>
+        <label>Какой социальный сеть вы пользуетесь чаще всего?</label>
+        <div class="option">
+          <span>Facebook</span><input type="radio" name="social" value="Facebook">
+        </div>
+        <div class="option">
+          <span>Threads</span><input type="radio" name="social" value="Threads">
+        </div>
+        <div class="option">
+          <span>Instagram</span><input type="radio" name="social" value="Instagram">
+        </div>
+        <div class="option">
+          <span>Google+</span><input type="radio" name="social" value="Google+">
+        </div>
+        <div class="option">
+          <span>Twitter</span><input type="radio" name="social" value="Twitter">
+        </div>
+        <div class="option">
+
+        <input type="text" name="option" placeholder="Введите свой вариант">
+        <button>Отправить</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Программа рисования</title>
+    <style>
+       body {
+            display: flex;
+            background: rgb(238, 229, 174);
+            background: radial-gradient(circle, rgba(238, 229, 174, 1) 0%, rgba(148, 187, 233, 1) 100%);
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #canvas-container {
+            display: flex;
+            flex-direction: row;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        canvas {
+            border: 1px solid black;
+            background: #ffffff;
+        }
+
+        #controls {
+            margin-left: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #clear-button,
+        #add-text-button,
+        #circle-button,
+        #rectangle-button,
+        #triangle-button,
+        #clear-shapes-button,
+        #normal-brush-button,
+        #circle-brush-button {
+            padding: 10px 50px;
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        #text-input {
+            padding: 20px;
+            margin: 0;
+            width: 300px;
+            height: 40px;
+            font-size: 25px;
+        }
+
+        #clear-button {
+            position: absolute;
+            bottom: 10px;
+            right: -20px;
+        }
+
+        #my-name {
+            font-family: 'Anton', sans-serif;
+            font-size: 40px;
+            width: auto;
+            height: auto;
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+        }
+        #fill-canvas-button {
+            padding: 10px 50px;
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Caprasimo&family=Tilt+Prism&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="canvas-container">
+    <canvas id="canvas" width="1500px" height="1300px"></canvas>
+    <div id="controls">
+        <input type="color" id="color-picker" value="#000000">
+        <input type="range" id="brush-size" min="1" max="20" value="5">
+        <input type="text" id="text-input" placeholder="Введите текст">
+        <button id="add-text-button">Добавить текст</button>
+        
+        <button id="circle-button">Круг</button>
+        <button id="rectangle-button">Прямоугольник</button>
+        <button id="triangle-button">Треугольник</button>
+        <button id="fill-canvas-button">Залить холст</button>
+    </div>
+    <button id="clear-button">Очистить рисунки</button>
+</div>
+<div id="my-name">Vadim Golovin</div>
+<script>
+    const canvas = document.getElementById('canvas');
+    const context = canvas.getContext('2d');
+    const colorPicker = document.getElementById('color-picker');
+    const brushSize = document.getElementById('brush-size');
+    const clearButton = document.getElementById('clear-button');
+    const textInput = document.getElementById('text-input');
+    const addTextButton = document.getElementById('add-text-button');
+    const circleButton = document.getElementById('circle-button');
+    const rectangleButton = document.getElementById('rectangle-button');
+    const triangleButton = document.getElementById('triangle-button');
+    const clearShapesButton = document.getElementById('clear-shapes-button');
+    const circleBrushButton = document.getElementById('circle-brush-button');
+    const circleBrushColorPicker = document.getElementById('circle-brush-color-picker');
+    const fillCanvasButton = document.getElementById('fill-canvas-button');
+
+    let drawing = false;
+    let selectedShape = null;
+    let selectedBrush = 'normal';
+    let shapes = [];
+
+    canvas.addEventListener('mousedown', () => {
+        drawing = true;
+        context.beginPath();
+    });
+
+    canvas.addEventListener('mouseup', () => {
+        drawing = false;
+        context.closePath();
+    });
+
+    canvas.addEventListener('mousemove', draw);
+
+    colorPicker.addEventListener('input', () => {
+        context.strokeStyle = colorPicker.value;
+    });
+
+    fillCanvasButton.addEventListener('click', () => {
+        const fillColor = colorPicker.value;
+        context.fillStyle = fillColor;
+        context.fillRect(0, 0, canvas.width, canvas.height);
+    });
+
+    brushSize.addEventListener('input', () => {
+        const newSize = brushSize.value;
+        context.lineWidth = newSize > 10 ? newSize * 1.2 : newSize;
+    });
+
+    clearButton.addEventListener('click', () => {
+        context.fillStyle = '#FFFFFF';
+        context.fillRect(0, 0, canvas.width, canvas.height);
+        shapes = [];
+    });
+
+    addTextButton.addEventListener('click', () => {
+        const text = textInput.value;
+
+        if (text) {
+            context.font = `${brushSize.value}px 'Anton', sans-serif`;
+            context.fillText(text, 50, 50);
+        }
+    });
+
+    circleButton.addEventListener('click', () => {
+        selectedShape = 'circle';
+        selectedBrush = 'normal';
+    });
+
+    rectangleButton.addEventListener('click', () => {
+        selectedShape = 'rectangle';
+        selectedBrush = 'normal';
+    });
+
+    triangleButton.addEventListener('click', () => {
+        selectedShape = 'triangle';
+        selectedBrush = 'normal';
+    });
+
+    clearShapesButton.addEventListener('click', () => {
+        shapes = [];
+    });
+
+    circleBrushButton.addEventListener('click', () => {
+        selectedBrush = 'circle';
+    });
+
+    colorPicker.addEventListener('input', () => {
+        context.fillStyle = colorPicker.value;
+    });
+
+    function draw(e) {
+        if (!drawing) return;
+
+        const x = e.clientX - canvas.offsetLeft;
+        const y = e.clientY - canvas.offsetTop;
+
+        context.strokeStyle = colorPicker.value;
+        context.lineWidth = brushSize.value;
+
+        if (selectedShape === 'circle') {
+            context.beginPath();
+            context.arc(x, y, brushSize.value * 5, 0, 2 * Math.PI);
+            context.stroke();
+            shapes.push({ type: 'circle', x, y, size: brushSize.value * 5 });
+        } else if (selectedShape === 'rectangle') {
+            context.beginPath();
+            context.rect(x - brushSize.value * 5, y - brushSize.value * 5, brushSize.value * 10, brushSize.value * 10);
+            context.stroke();
+            shapes.push({ type: 'rectangle', x: x - brushSize.value * 5, y: y - brushSize.value * 5, width: brushSize.value * 10, height: brushSize.value * 10 });
+        } else if (selectedShape === 'triangle') {
+            context.beginPath();
+            context.moveTo(x, y - brushSize.value * 5);
+            context.lineTo(x + brushSize.value * 5, y + brushSize.value * 5);
+            context.lineTo(x - brushSize.value * 5, y + brushSize.value * 5);
+            context.closePath();
+            context.stroke();
+            shapes.push({ type: 'triangle', x, y, size: brushSize.value * 10 });
+        } else if (selectedBrush === 'normal') {
+            context.lineTo(x, y);
+            context.stroke();
+        } else if (selectedBrush === 'circle') {
+            context.beginPath();
+            context.arc(x, y, brushSize.value * 2, 0, 2 * Math.PI);
+            context.fill();
+        }
+    }
+
+    function drawShapes() {
+        for (const shape of shapes) {
+            context.strokeStyle = colorPicker.value;
+            context.lineWidth = brushSize.value;
+            if (shape.type === 'circle') {
+                context.beginPath();
+                context.arc(shape.x, shape.y, shape.size, 0, 2 * Math.PI);
+                context.stroke();
+            } else if (shape.type === 'rectangle') {
+                context.beginPath();
+                context.rect(shape.x, shape.y, shape.width, shape.height);
+                context.stroke();
+            } else if (shape.type === 'triangle') {
+                context.beginPath();
+                context.moveTo(shape.x, shape.y - shape.size / 2);
+                context.lineTo(shape.x + shape.size / 2, shape.y + shape.size / 2);
+                context.lineTo(shape.x - shape.size / 2, shape.y + shape.size / 2);
+                context.closePath();
+                context.stroke();
+            }
+        }
+    }
+
+    setInterval(drawShapes, 100);
+</script>
+</body>
+</html>
